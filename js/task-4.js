@@ -149,9 +149,39 @@ function solution(string) {
   return newString;
 }
 
-console.log(solution(''), '');
-console.log(solution('camelCasing'), 'camel Casing');
-console.log(solution('camelCasingTest'), 'camel Casing Test');
+// console.log(solution(''), '');
+// console.log(solution('camelCasing'), 'camel Casing');
+// console.log(solution('camelCasingTest'), 'camel Casing Test');
 
-const string = 'jfjkdsbgjkgb';
-console.log([...string]);
+// const string = 'jfjkdsbgjkgb';
+// console.log([...string]);
+
+function findOutlier(integers) {
+  const even = integers.filter(num => num % 2 === 0);
+  const odd = integers.filter(num => num % 2 !== 0);
+  return even.length > odd.length ? odd[0] : even[0];
+}
+
+// console.log(findOutlier([0, 1, 2]), 1);
+// console.log(findOutlier([1, 2, 3]), 2);
+// console.log(findOutlier([2, 6, 8, 10, 3]), 3);
+// console.log(findOutlier([0, 0, 3, 0, 0]), 3);
+// console.log(findOutlier([1, 1, 0, 1, 1]), 0);
+
+function persistence(num) {
+  let arrNum = String(num).split('');
+  let counter = 0;
+  let newNumber = 1;
+  while (arrNum.length > 1) {
+    counter += 1;
+    arrNum.forEach(number => (newNumber *= number));
+    arrNum = String(newNumber).split('');
+    newNumber = 1;
+  }
+  return counter;
+}
+
+console.log(persistence(39), 3);
+console.log(persistence(4), 0);
+console.log(persistence(25), 2);
+console.log(persistence(999), 4);
