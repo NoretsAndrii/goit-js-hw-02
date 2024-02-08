@@ -181,7 +181,24 @@ function persistence(num) {
   return counter;
 }
 
-console.log(persistence(39), 3);
-console.log(persistence(4), 0);
-console.log(persistence(25), 2);
-console.log(persistence(999), 4);
+// console.log(persistence(39), 3);
+// console.log(persistence(4), 0);
+// console.log(persistence(25), 2);
+// console.log(persistence(999), 4);
+
+const printContactsInfo = ({ names, phones }) => {
+  const nameList = names.split(',');
+  const phoneList = phones.split(',');
+  const contactsDataArr = nameList.reduce((comtactInfo, name, i) => {
+    comtactInfo.push({ name, phone: phoneList[i] });
+    return comtactInfo;
+  }, []);
+  return contactsDataArr;
+};
+
+console.log(
+  printContactsInfo({
+    names: 'Jacob,William,Solomon,Artemis',
+    phones: '89001234567,89001112233,890055566377,890055566300',
+  })
+);
