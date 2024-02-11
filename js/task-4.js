@@ -202,3 +202,20 @@ console.log(
     phones: '89001234567,89001112233,890055566377,890055566300',
   })
 );
+
+function moveZeros(arr) {
+  const array = [...arr];
+  let end = array.length;
+  for (let i = array.length - 1; i >= 0; i -= 1) {
+    if (arr[i] === 0) {
+      array.push(0);
+      array.splice(i, 1);
+    }
+  }
+  return array;
+}
+
+console.log(
+  moveZeros([1, 2, 0, 1, 0, 1, 0, 3, 0, 1]),
+  [1, 2, 1, 1, 3, 1, 0, 0, 0, 0]
+);
